@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Plant My Tree</string>
+
+    <string name="first_heading">Plant Trees</string>
+    <string name="second_heading">Get Location</string>
+    <string name="third_heading">Plant For Events</string>
+
+    <string name="first_slide_desc">We Allow you to Plant Tress from your place of comfort.</string>
+    <string name="second_slide_desc">We give you the Location of Your Plant so that you can see them when you want.</string>
+    <string name="third_slide_desc">We have Events and Plantation Drives so tht you can get benefit of  those at your Finger Tips.</string>
+    <string name="featured_events">Featured Events</string>
+    <string name="featured_events_description">All the Events which are very Popular</string>
+
+</resources>
