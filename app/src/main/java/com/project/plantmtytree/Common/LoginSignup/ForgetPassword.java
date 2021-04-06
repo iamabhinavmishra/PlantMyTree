@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.project.plantmtytree.R;
 
-public class SignUp2ndClass extends AppCompatActivity {
+public class ForgetPassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up2nd_class);
+        setContentView(R.layout.activity_forget_password);
     }
 }

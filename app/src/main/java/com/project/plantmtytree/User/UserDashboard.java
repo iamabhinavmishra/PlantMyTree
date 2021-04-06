@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.project.plantmtytree.Common.LoginSignup.startup_screen_main;
+import com.project.plantmtytree.Common.SelectLoginOption;
 import com.project.plantmtytree.HelperClasses.HomeAdapter.CategoriesAdapter;
 import com.project.plantmtytree.HelperClasses.HomeAdapter.CategoriesHelperClass;
 import com.project.plantmtytree.HelperClasses.HomeAdapter.FeaturedAdapter;
@@ -65,9 +66,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
-    public void callStartupScreen(View view) {
-        startActivity(new Intent(getApplicationContext(), startup_screen_main.class));
-    }
+
 
     private void navigationDrawer() {
         //Naviagtion Drawer
@@ -139,5 +138,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return true;
+    }
+
+    public void callSelectLogin(View view) {
+        startActivity(new Intent(getApplicationContext(), SelectLoginOption.class));
     }
 }

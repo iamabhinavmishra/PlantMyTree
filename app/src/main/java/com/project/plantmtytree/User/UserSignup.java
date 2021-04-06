@@ -1,4 +1,4 @@
-package com.project.plantmtytree.Common.LoginSignup;
+package com.project.plantmtytree.User;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,9 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,18 +19,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hbb20.CountryCodePicker;
 import com.project.plantmtytree.Databases.PlanterHelperClass;
+import com.project.plantmtytree.Databases.UserHelperClass;
 import com.project.plantmtytree.LocationOwner.PlanterDashboard;
 import com.project.plantmtytree.R;
-import com.project.plantmtytree.User.UserDashboard;
 
-public class Signup<mAuth> extends AppCompatActivity {
+public class UserSignup extends AppCompatActivity {
 
-    //Variables
-    ImageView backBtn;
-    Button next, login;
-    TextView titleText;
-    TextInputLayout regfullName, regEmail, regPhoneNo, regPassword;
-    CountryCodePicker countryCodePicker;
+    TextInputLayout regUserfullName, regUserEmail, regUserPhoneNo, regUserPassword;
+    CountryCodePicker UsercountryCodePicker;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -44,35 +37,18 @@ public class Signup<mAuth> extends AppCompatActivity {
     // [START declare_auth]
     private FirebaseAuth mAuth;
 
-    // [END declare_auth]
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_planter_signup);
+        setContentView(R.layout.activity_user_signup);
+        //hooks
         mAuth = FirebaseAuth.getInstance();
-
-
-        //Hooks for animation
-        backBtn = findViewById(R.id.signup_back_button);
-        next = findViewById(R.id.signup_next_button);
-        login = findViewById(R.id.signup_login_button);
-        titleText = findViewById(R.id.signup_title_text);
-
-
         //Hooks For data
-        regfullName = findViewById(R.id.signup_fullname);
-        regEmail = findViewById(R.id.signup_email);
-        regPassword = findViewById(R.id.signup_password);
-        countryCodePicker = findViewById(R.id.country_code_picker);
-        regPhoneNo= findViewById(R.id.signup_phone_number);
-
-
-
-
-
-
+        regUserfullName = findViewById(R.id.user_signup_fullname);
+        regUserEmail = findViewById(R.id.user_signup_email);
+        regUserPassword = findViewById(R.id.user_signup_password);
+        UsercountryCodePicker = findViewById(R.id.user_country_code_picker);
+        regUserPhoneNo= findViewById(R.id.user_signup_phone_number);
 
     }
 
@@ -86,24 +62,18 @@ public class Signup<mAuth> extends AppCompatActivity {
         }
     }
 
-    public void callPlanterDashboard(View view) {
+    public void callUserDashboard(View view) {
         if (!validateFullName()  | !validateEmail() | !validatePassword() | !validatePhoneNumber()) {
             return;
         }
 
 
-       createAccount();
-
-
-
-
-
-
+        createUserAccount();
     }
 
-    private void createAccount() {
-        String xemail = regEmail.getEditText().getText().toString();
-        String xpassword = regPassword.getEditText().getText().toString();
+    private void createUserAccount() {
+        String xemail = regUserEmail.getEditText().getText().toString();
+        String xpassword = regUserPassword.getEditText().getText().toString();
 
         mAuth.createUserWithEmailAndPassword(xemail, xpassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -115,7 +85,7 @@ public class Signup<mAuth> extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(getApplicationContext(), "Authentication Success.",
                                     Toast.LENGTH_SHORT).show();
-                            storeNewUsersData();
+                            storeNewUserData();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -125,104 +95,97 @@ public class Signup<mAuth> extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
-
-
-    private void storeNewUsersData() {
+    private void storeNewUserData() {
         rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("Planters");
+        reference = rootNode.getReference("Users");
 
-        String fullName = regfullName.getEditText().getText().toString();
-        String email = regEmail.getEditText().getText().toString();
-        String phoneNo = regPhoneNo.getEditText().getText().toString();
-        String password = regPassword.getEditText().getText().toString();
+        String fullName = regUserfullName.getEditText().getText().toString();
+        String email = regUserEmail.getEditText().getText().toString();
+        String phoneNo = regUserPhoneNo.getEditText().getText().toString();
+        String password = regUserPassword.getEditText().getText().toString();
 
         //Create helperclass reference and store data using firebase
-        PlanterHelperClass addNewUser = new PlanterHelperClass(fullName, email, phoneNo, password);
+        UserHelperClass addNewUser = new UserHelperClass(fullName, email, phoneNo, password);
         reference.child(phoneNo).setValue(addNewUser);
 
 
 
+        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
+        finish();
+    }
+
+
+    public void callLoginFromSignUp(View view) {
+        startActivity(new Intent(getApplicationContext(), UserLogin.class));
+        finish();
+    }
+
+    public void callDashboard(View view) {
         startActivity(new Intent(getApplicationContext(), PlanterDashboard.class));
         finish();
-
     }
 
     private boolean validateFullName() {
-        String val = regfullName.getEditText().getText().toString().trim();
+        String val = regUserfullName.getEditText().getText().toString().trim();
         if (val.isEmpty()) {
-            regfullName.setError("Field can not be empty");
+            regUserfullName.setError("Field can not be empty");
             return false;
         } else {
-            regfullName.setError(null);
-            regfullName.setErrorEnabled(false);
+            regUserfullName.setError(null);
+            regUserfullName.setErrorEnabled(false);
             return true;
         }
     }
 
     private boolean validateEmail() {
-        String val = regEmail.getEditText().getText().toString().trim();
+        String val = regUserEmail.getEditText().getText().toString().trim();
         String checkEmail = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
 
         if (val.isEmpty()) {
-            regEmail.setError("Field can not be empty");
+            regUserEmail.setError("Field can not be empty");
             return false;
         } else if (!val.matches(checkEmail)) {
-            regEmail.setError("Invalid Email!");
+            regUserEmail.setError("Invalid Email!");
             return false;
         } else {
-            regEmail.setError(null);
-            regEmail.setErrorEnabled(false);
+            regUserEmail.setError(null);
+            regUserEmail.setErrorEnabled(false);
             return true;
         }
     }
 
     private boolean validatePassword() {
-        String val = regPassword.getEditText().getText().toString().trim();
+        String val = regUserPassword.getEditText().getText().toString().trim();
 
         if (val.isEmpty()) {
-            regPassword.setError("Field can not be empty");
+            regUserPassword.setError("Field can not be empty");
             return false;
 
         } else {
-            regPassword.setError(null);
-            regPassword.setErrorEnabled(false);
+            regUserPassword.setError(null);
+            regUserPassword.setErrorEnabled(false);
             return true;
         }
-    }
-
-
-    public void callLoginFromSignUp(View view) {
-        startActivity(new Intent(getApplicationContext(), Login.class));
-        finish();
     }
 
     private boolean validatePhoneNumber() {
-        String val = regPhoneNo.getEditText().getText().toString().trim();
+        String val = regUserPhoneNo.getEditText().getText().toString().trim();
         if (val.isEmpty()) {
-            regPhoneNo.setError("Enter valid phone number");
+            regUserPhoneNo.setError("Enter valid phone number");
             return false;
 
         } else {
-            regPhoneNo.setError(null);
-            regPhoneNo.setErrorEnabled(false);
+            regUserPhoneNo.setError(null);
+            regUserPhoneNo.setErrorEnabled(false);
             return true;
         }
     }
 
-
-    public void callDashboard(View view) {
+    private void reload() {
         startActivity(new Intent(getApplicationContext(), UserDashboard.class));
         finish();
-    }
-
-    private void reload() {
-        startActivity(new Intent(getApplicationContext(), PlanterDashboard.class));
-        finish();
 
     }
-
-
 }

@@ -7,7 +7,7 @@
     android:background="@color/feeling_yellow"
     android:transitionName="transition_login"
     android:padding="30dp"
-    tools:context=".Common.LoginSignup.Login">
+    tools:context=".User.UserLogin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,16 +16,15 @@
 
 
         <ImageView
-            android:id="@+id/login_back_button"
+            android:id="@+id/user_login_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:onClick="callDashboard"
             android:src="@drawable/back_icon" />
 
 
         <TextView
-            android:id="@+id/login_text"
+            android:id="@+id/user_login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -43,11 +42,11 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_email"
+                android:id="@+id/user_login_email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_text"
+                android:layout_below="@id/user_login_text"
                 android:hint="Email"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
@@ -59,23 +58,23 @@
                 app:startIconTint="@color/black">
 
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_email_editText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/black" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_login_email_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_password"
+                android:id="@+id/user_login_password"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_email"
+                android:layout_below="@id/user_login_email"
                 android:hint="Password"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
@@ -88,7 +87,7 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_password_editText"
+                    android:id="@+id/user_login_password_editText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/roboto_condensed_regular"
@@ -100,15 +99,15 @@
 
 
             <RelativeLayout
-                android:id="@+id/forget_password_block"
+                android:id="@+id/user_forget_password_block"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_password"
+                android:layout_below="@id/user_login_password"
                 android:layout_marginTop="10dp">
 
 
                 <CheckBox
-                    android:id="@+id/remember_me"
+                    android:id="@+id/user_remember_me"
                     style="@style/Widget.AppCompat.CompoundButton.CheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,10 +130,10 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/letTheUserLogIn"
+                android:id="@+id/user_letTheUserLogIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/forget_password_block"
+                android:layout_below="@id/user_forget_password_block"
                 android:layout_marginTop="20dp"
                 android:background="@color/black"
                 android:onClick="letTheUserLoggedIn"
@@ -145,7 +144,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/letTheUserLogIn"
+                android:layout_below="@id/user_letTheUserLogIn"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:background="#00000000"
@@ -154,7 +153,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/login_progress_bar"
+                android:id="@+id/user_login_progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

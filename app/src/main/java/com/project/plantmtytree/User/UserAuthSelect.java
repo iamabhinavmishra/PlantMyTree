@@ -1,4 +1,4 @@
-package com.project.plantmtytree.Common.LoginSignup;
+package com.project.plantmtytree.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,21 +8,22 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 
+import com.project.plantmtytree.Common.LoginSignup.Login;
+import com.project.plantmtytree.Common.LoginSignup.Signup;
+import com.project.plantmtytree.Common.LoginSignup.startup_screen_main;
 import com.project.plantmtytree.R;
-import com.project.plantmtytree.User.UserDashboard;
 
-public class startup_screen_main extends AppCompatActivity {
+public class UserAuthSelect extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_startup_screen_main);
+        setContentView(R.layout.activity_user_auth_select);
     }
 
     public void callLoginScreen(View view) {
 
-
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), UserLogin.class);
 
 
         Pair[] pairs = new Pair[1];
@@ -30,19 +31,15 @@ public class startup_screen_main extends AppCompatActivity {
 
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(startup_screen_main.this, pairs);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(UserAuthSelect.this, pairs);
             startActivity(intent, options.toBundle());
         } else {
             startActivity(intent);
         }
-
-
     }
 
     public void callSignUpScreen(View view) {
-
-
-        Intent intent = new Intent(getApplicationContext(), Signup.class);
+        Intent intent = new Intent(getApplicationContext(), UserSignup.class);
 
 
         Pair[] pairs = new Pair[1];
@@ -50,16 +47,16 @@ public class startup_screen_main extends AppCompatActivity {
 
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(startup_screen_main.this, pairs);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(UserAuthSelect.this, pairs);
             startActivity(intent, options.toBundle());
         } else {
             startActivity(intent);
         }
 
-
     }
 
     public void callDashboard(View view) {
+
         startActivity(new Intent(getApplicationContext(), UserDashboard.class));
     }
 }

@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/feeling_green2"
-
     android:padding="30dp"
-    tools:context=".Common.LoginSignup.startup_screen_main">
-
+    tools:context=".User.UserAuthSelect">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="120dp"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:text="Put Events To Plant Tress"
+            android:text="Plant Trees To Make Enviroment Green"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
