@@ -80,6 +80,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void reload() {
+        Toast.makeText(getApplicationContext(), "User Already Logged IN",
+                Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplicationContext(), PlanterDashboard.class));
         finish();
 
