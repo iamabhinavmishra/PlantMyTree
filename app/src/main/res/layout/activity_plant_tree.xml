@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/feeling_yellow"
+    android:padding="30dp"
+    tools:context=".User.PlantTree">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="callBackScreenFromMakeSelection"
+            android:padding="5dp"
+            android:src="@drawable/back_icon" />
+
+
+        <TextView
+            android:id="@+id/make_selection_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="Make\nSelection"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="35sp" />
+
+
+        <TextView
+            android:id="@+id/make_selection_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:text="Please Select an Option To Continue"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <RelativeLayout
+            android:id="@+id/make_selection_plant1"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="50dp"
+            android:background="#E5D68A"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/plant1_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/logo" />
+
+
+            <TextView
+                android:id="@+id/plant1_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_toRightOf="@id/plant1_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Banyan Tree"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/plant1_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plant1_title"
+                android:layout_toRightOf="@id/plant1_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Price:  ₹500"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:onClick="callMango"
+                />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/make_selection_plant2"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            android:background="#E5D68A"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/plant2_icon"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/logo"
+                />
+
+
+            <TextView
+                android:id="@+id/plant2_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_toRightOf="@id/plant2_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Neem Tree"
+                android:textSize="20sp"
+                />
+
+
+            <TextView
+                android:id="@+id/plant2_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plant2_title"
+                android:layout_toRightOf="@id/plant2_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Price:  ₹300"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:onClick="callNeem"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/make_selection_plant3"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            android:background="#E5D68A"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/plant3_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/logo" />
+
+
+            <TextView
+                android:id="@+id/plant3_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_toRightOf="@id/plant3_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Peepal Tree"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/plant3_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plant3_title"
+                android:layout_toRightOf="@id/plant3_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Price:  ₹400"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:onClick="callPeepal"
+                />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/make_selection_plant4"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            android:background="#E5D68A"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/plant4_icon"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/logo"
+                />
+
+
+            <TextView
+                android:id="@+id/plant4_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_toRightOf="@id/plant4_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Arjuna Tree"
+                android:textSize="20sp"
+                />
+
+
+            <TextView
+                android:id="@+id/plant4_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plant4_title"
+                android:layout_toRightOf="@id/plant4_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Price:  ₹300"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:onClick="callArjuna"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/make_selection_plant5"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            android:background="#E5D68A"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/plant5_icon"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/logo"
+                />
+
+
+            <TextView
+                android:id="@+id/plant5_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_toRightOf="@id/plant5_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Sal Tree"
+                android:textSize="20sp"
+                />
+
+
+            <TextView
+                android:id="@+id/plant5_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plant5_title"
+                android:layout_toRightOf="@id/plant5_icon"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Price:  ₹200"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:onClick="callSal"
+                />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mail_des"
+            android:layout_marginTop="20dp"
+            android:background="@color/black"
+            android:onClick="callHome"
+            android:text="Home"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</ScrollView>

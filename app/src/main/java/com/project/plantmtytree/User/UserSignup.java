@@ -123,7 +123,7 @@ public class UserSignup extends AppCompatActivity {
     }
 
     public void callDashboard(View view) {
-        startActivity(new Intent(getApplicationContext(), PlanterDashboard.class));
+        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
         finish();
     }
 

@@ -24,7 +24,7 @@ public class PlanterDashboard extends AppCompatActivity {
     }
 
     public void callAddEvent(View view) {
-        startActivity(new Intent(getApplicationContext(), AddEvent.class));
+        startActivity(new Intent(getApplicationContext(), PlanterCaution.class));
 
     }
 

@@ -60,7 +60,7 @@ public class UserLogin extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(getApplicationContext(), "Authentication Success.",
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), PlanterDashboard.class));
+                            startActivity(new Intent(getApplicationContext(), UserDashboard.class));
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -81,7 +81,7 @@ public class UserLogin extends AppCompatActivity {
     private void reload() {
         Toast.makeText(getApplicationContext(), "User Already Logged IN",
                 Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(), PlanterDashboard.class));
+        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
         finish();
 
     }

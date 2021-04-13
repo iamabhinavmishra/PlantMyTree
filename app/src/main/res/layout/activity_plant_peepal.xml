@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/feeling_yellow"
+    android:padding="30dp"
+    android:layout_height="match_parent"
+    tools:context=".User.PlantPeepal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="callBackScreen"
+            android:backgroundTint="@color/black"
+            android:padding="5dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/order_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="Order\nDetails"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="35sp" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:id="@+id/img_lgo"
+            android:paddingLeft="100dp"
+            android:src="@drawable/logo"
+            android:layout_height="200dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/plant_name_peepal"
+            android:paddingTop="20dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:textColor="@color/black"
+            android:text="Plant Name: Peepal Tree"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/plant_price_peepal"
+            android:paddingTop="20dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:textColor="@color/black"
+            android:text="Plant Price: ₹400"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_name_peepal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:paddingTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/plant_price_peepal"
+            android:hint="Name"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconTint="@color/black"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/profile_icon"
+            app:startIconTint="@color/black">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_name_editext_peepal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:inputType="text"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_phone_peepal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:paddingTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_name_peepal"
+            android:hint="Phone Number"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconTint="@color/black"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/phone_number_icon"
+            app:startIconTint="@color/black">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_phone_editext_peepal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:inputType="phone"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/letTheUserPlaceOrder_peepal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/forget_password_block"
+            android:layout_marginTop="20dp"
+            android:background="@color/black"
+            android:onClick="letTheUserPlaceOrder"
+            android:text="Place Order"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/letTheUserCancel_peepal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/forget_password_block"
+            android:layout_marginTop="20dp"
+            android:background="@color/black"
+            android:onClick="letTheUserCancel"
+            android:text="Cancel"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</ScrollView>

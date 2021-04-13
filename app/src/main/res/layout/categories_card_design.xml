@@ -5,31 +5,91 @@
     android:layout_height="150dp"
     android:layout_margin="12sp"
     app:cardCornerRadius="0dp"
+
     app:cardElevation="8dp">
 
-    <RelativeLayout
-        android:id="@+id/background_gradient"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/card_1"
-        android:padding="15dp">
+        android:background="@color/feeling_yellow"
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/categories_title"
+            android:id="@+id/event_fetch_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_condensed_regular"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:text="Plant A Tree"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="16dp" />
+
+        <TextView
+            android:id="@+id/event_fetch_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/event_desc"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:text="Price: 300"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/categories_image"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/logo" />
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/event_fetch_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_fetch_title"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:text="EventId"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="16dp" />
+
+        <TextView
+            android:id="@+id/event_fetch_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_fetch_id"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:text="EventPhone"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_marginLeft="16dp" />
+
+        <TextView
+            android:id="@+id/event_fetch_handler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/event_fetch_phone"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:text="EventHAndler"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_fetch_phone" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

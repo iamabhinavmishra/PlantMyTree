@@ -8,22 +8,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.project.plantmtytree.Common.LoginSignup.startup_screen_main;
+import com.google.firebase.auth.FirebaseAuth;
 import com.project.plantmtytree.Common.SelectLoginOption;
-import com.project.plantmtytree.HelperClasses.HomeAdapter.CategoriesAdapter;
-import com.project.plantmtytree.HelperClasses.HomeAdapter.CategoriesHelperClass;
 import com.project.plantmtytree.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.project.plantmtytree.HelperClasses.HomeAdapter.FeaturedHelperClass;
-import com.project.plantmtytree.HelperClasses.HomeAdapter.MostViewedAdpater;
-import com.project.plantmtytree.HelperClasses.HomeAdapter.MostViewedHelperClass;
 import com.project.plantmtytree.R;
 
 import java.util.ArrayList;
@@ -142,5 +138,28 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     public void callSelectLogin(View view) {
         startActivity(new Intent(getApplicationContext(), SelectLoginOption.class));
+        finish();
+    }
+
+    public void callViewEvents(View view) {
+        startActivity(new Intent(getApplicationContext(), ViewEvent.class));
+        finish();
+    }
+
+    public void callPlantTree(View view) {
+        startActivity(new Intent(getApplicationContext(), PlantTree.class));
+        finish();
+    }
+
+    public void callViewLocation(View view) {
+        startActivity(new Intent(getApplicationContext(), ViewLocation.class));
+        finish();
+    }
+
+    public void callLogout(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(getApplicationContext(), "Logout Succesful",
+                Toast.LENGTH_SHORT).show();
+
     }
 }
