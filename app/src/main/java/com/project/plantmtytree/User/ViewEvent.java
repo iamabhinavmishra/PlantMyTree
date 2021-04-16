@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,17 @@ public class ViewEvent extends AppCompatActivity {
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Events");
         recyclerView = findViewById(R.id.event_recycler);
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        callOrder();
+                    }
 
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<events> options
@@ -57,6 +68,11 @@ public class ViewEvent extends AppCompatActivity {
        
     }
 
+    private void callOrder() {
+        startActivity(new Intent(getApplicationContext(), PlantTree.class));
+        finish();
+    }
+
 
     @Override
     protected void onStart()
@@ -73,98 +89,9 @@ public class ViewEvent extends AppCompatActivity {
         adapter.stopListening();
     }
 
-    public class events{
-        private String eventname;
-        private String eventid;
-        private String eventprice;
-        private String eventhandler;
-        private String eventphone;
 
-        public events() {}
-
-        public String getEventname() {
-            return eventname;
-        }
-
-        public void setEventname(String eventname) {
-            this.eventname = eventname;
-        }
-
-        public String getEventid() {
-            return eventid;
-        }
-
-        public void setEventid(String eventid) {
-            this.eventid = eventid;
-        }
-
-        public String getEventprice() {
-            return eventprice;
-        }
-
-        public void setEventprice(String eventprice) {
-            this.eventprice = eventprice;
-        }
-
-        public String getEventhandler() {
-            return eventhandler;
-        }
-
-        public void setEventhandler(String eventhandler) {
-            this.eventhandler = eventhandler;
-        }
-
-        public String getEventphone() {
-            return eventphone;
-        }
-
-        public void setEventphone(String eventphone) {
-            this.eventphone = eventphone;
-        }
+    public void callDashboard(View view) {
+        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
+        finish();
     }
-
-    public class eventsAdapter extends FirebaseRecyclerAdapter<
-                events, eventsAdapter.eventsViewholder> {
-
-        /**
-         * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-         * {@link FirebaseRecyclerOptions} for configuration options.
-         *
-         * @param options
-         */
-        public eventsAdapter(@NonNull FirebaseRecyclerOptions<events> options) {
-            super(options);
-        }
-
-        @Override
-        protected void onBindViewHolder(@NonNull eventsViewholder holder, int position, @NonNull events model) {
-            holder.eventname.setText(model.getEventname());
-            holder.eventid.setText(model.getEventid());
-            holder.eventhandler.setText(model.getEventhandler());
-            holder.eventphone.setText(model.getEventphone());
-        }
-
-        @NonNull
-        @Override
-        public eventsViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view
-                    = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.categories_card_design, parent, false);
-            return new eventsAdapter.eventsViewholder(view);
-        }
-
-        public class eventsViewholder extends RecyclerView.ViewHolder {
-            TextView eventname, eventid, eventhandler,eventphone;
-
-            public eventsViewholder(@NonNull View itemView) {
-                super(itemView);
-                eventname = itemView.findViewById(R.id.event_fetch_title);
-                eventid = itemView.findViewById(R.id.event_fetch_id);
-                eventhandler = itemView.findViewById(R.id.event_fetch_handler);
-                eventphone = itemView.findViewById(R.id.event_fetch_phone);
-            }
-        }
-    }
-
-
 }

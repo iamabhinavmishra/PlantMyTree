@@ -29,7 +29,7 @@ public class PlanterDashboard extends AppCompatActivity {
     }
 
     public void callAddLocation(View view) {
-        startActivity(new Intent(getApplicationContext(), AddLocation.class));
+        startActivity(new Intent(getApplicationContext(), CautionTwo.class));
 
     }
 

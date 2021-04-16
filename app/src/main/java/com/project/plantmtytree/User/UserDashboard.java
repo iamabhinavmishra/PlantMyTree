@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.project.plantmtytree.Common.LoginSignup.MakeSelection;
 import com.project.plantmtytree.Common.SelectLoginOption;
 import com.project.plantmtytree.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.project.plantmtytree.HelperClasses.HomeAdapter.FeaturedHelperClass;
@@ -44,7 +45,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
 
         //Hooks
-        featuredRecycler = findViewById(R.id.featured_recycler);
+
 
         //Menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -57,7 +58,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
 
         //Functions will be executed automatically when this activity will be created
-        featuredRecycler();
+
 
 
     }
@@ -114,25 +115,39 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
 
-    private void featuredRecycler() {
 
-        featuredRecycler.setHasFixedSize(true);
-        featuredRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        ArrayList<FeaturedHelperClass> featuredLocations = new ArrayList<>();
-
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.logo, "Mcdonald's", "asbkd asudhlasn saudnas jasdjasl hisajdl asjdlnas"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.logo, "Edenrobe", "asbkd asudhlasn saudnas jasdjasl hisajdl asjdlnas"));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.logo, "Walmart", "asbkd asudhlasn saudnas jasdjasl hisajdl asjdlnas"));
-
-        adapter = new FeaturedAdapter(featuredLocations);
-        featuredRecycler.setAdapter(adapter);
-
-
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.nav_home:
+                Intent h= new Intent(getApplicationContext(),UserDashboard.class);
+                h.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(h);
+                break;
+            case R.id.nav_login:
+                Intent i= new Intent(getApplicationContext(), SelectLoginOption.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                break;
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getApplicationContext(), "Logout Successful",
+                        Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_all_categories:
+                Intent k= new Intent(getApplicationContext(), ViewEvent.class);
+                k.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(k);
+                break;
+            case R.id.nav_add_missing_place:
+                Intent l= new Intent(getApplicationContext(), ViewLocation.class);
+                l.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(l);
+                break;
+
+        }
         return true;
     }
 
@@ -158,7 +173,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     public void callLogout(View view) {
         FirebaseAuth.getInstance().signOut();
-        Toast.makeText(getApplicationContext(), "Logout Succesful",
+        Toast.makeText(getApplicationContext(), "Logout Successful",
                 Toast.LENGTH_SHORT).show();
 
     }

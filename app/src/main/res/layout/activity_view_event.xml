@@ -4,11 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/feeling_yellow"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".User.ViewEvent">
+
+    <ImageView
+        android:id="@+id/user_login_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:onClick="callDashboard"
+        android:src="@drawable/back_icon" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event_recycler"
         android:layout_width="match_parent"
+        android:paddingTop="20dp"
         android:layout_height="match_parent"
         android:background="#EDC126"/>
 

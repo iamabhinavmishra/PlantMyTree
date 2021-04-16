@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlantMyTree">
-        <activity android:name=".User.OrderSuccess"></activity>
+        <activity android:name=".LocationOwner.CautionTwo"></activity>
+        <activity android:name=".LocationOwner.UpdateLocation" />
+        <activity android:name=".User.OrderSuccess" />
         <activity android:name=".User.PlantSal" />
         <activity android:name=".User.PlantArjuna" />
         <activity android:name=".User.PlantPeepal" />
